@@ -30,7 +30,7 @@ We will be designing a school (focusing on the administrative side, not the stud
 
 In creating these three structures, there's a lot of similarity shared between them. Historically this problem was solved using inheritance (Object-Oriented Programming), but we're going to start with a protocol, not a class. And like I stated, we're going to be creating these as structures, not classes.
 
-A quick overview of the journey we're about to go on. We're going to create a `Payable`, `TimeOff`, `Teach`, `Employee` and `Reprimand` protocol. We will then extend each protocol to provide default implementation. After that we will create our three structures, `AdvisoryBoardMember`, `Principal`, and `Teacher`. Each of these structures will adopt and conform to the protocols we created, but some will conform to only a few. Not ever protocol will be adopted by every structure.
+A quick overview of the journey we're about to go on. We're going to create a `Payable`, `TimeOff`, `Teach`, `Employee` and `Reprimand` protocol. We will then extend each protocol to provide default implementation. After that we will create our three structures, `AdvisoryBoardMember`, `Principal`, and `Teacher`. Each of these structures will adopt and conform to the protocols we created, but some will conform to only a few. Not every protocol will be adopted by every structure.
 
 **(1)** - In the `School.swift` file, create a protocol called `Payable` that has one function requirement. The name of the function should be `wages()`. It takes in no arguments but returns back a `Double`. 
 
@@ -66,7 +66,7 @@ In your implementation, you should switch on the `subject` argument and return t
 
 If the case is .math - "Take out your math books please."  
 If the case is .science - "Time to learn the best subject of all! Science!!"  
-If the case is .english - "To read or not to read. Everyone take out your english books.
+If the case is .english - "To read or not to read. Everyone take out your english books."
 
 ---
 
@@ -74,7 +74,7 @@ Lets now head over to the `SchoolEmployees.swift` file. We're going to create ou
 
 **(11)** - Create a new struct called `AdvisoryBoardMember` which has two instance properties (both of which should be variables). One should be called `name` of type `String`. The other should be called `vacationDays` of type `Int` with a default value of `30`. As well, implement the function `wages()` which takes in no argument and returns a `Double`. In your implementation of this function, you should return back the number `100_000.00` (or 100000.00, they are both the same thing).
 
-**(12)** Next is something that will show how powerful these protocols really are. Extend the `AdvisoryBoardMember` class and adopt the following the following protocols in this extension.  
+**(12)** Next is something that will show how powerful these protocols really are. Extend the `AdvisoryBoardMember` struct and adopt the following the following protocols in this extension.  
 
 * `Payable`
 * `TimeOff`
@@ -112,11 +112,8 @@ protocol Employee: Payable, TimeOff { }
 
 So anyone that adopts this `Employee` protocol must also conform to the `Payable` and `TimeOff` protocols as well! So we can now go back to our `SchoolEmployees.swift` file and take out where each struct is adopting the `Payable` and `TimeOff` protocol and replace it with the `Employee` protocol (which now accounts for both of those).
 
-
-
 You can test out your code in the `ViewController.swift` file, writing code in the `viewDidLoad()` function.
 
 ALSO!, there are two test files which are making sure you implement everything correctly. You can look at these tests in the `ProtocolTests.swift` file and the `SchoolEmployeeTests.swift` file.
 
-
-<a href='https://learn.co/lessons/AllTheThings' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p class='util--hide'>View <a href='https://learn.co/lessons/swift-Hospital-lab'>School Lab</a> on Learn.co and start learning to code for free.</p>
